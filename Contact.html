@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VODS-Contact</title>
+    <link rel="stylesheet" media="only screen and (min-width:600px)" href="contact.css">
+    <link rel="stylesheet" media="only screen and (max-width:600px)" href="contactMobile.css">
+
+</head>
+
+<body>
+    <div class="trans">
+        <div class="logo">
+            <a href="Home.html"><img src="logo.PNG" alt="" width="150" height="80"></a>
+        </div>
+        <div class="search_box">
+            <i class="uil uil-search search"></i>
+            <input type="text" placeholder="Search">
+        </div>
+        <nav id="nav1">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <main>
+
+            <div id="one">
+                <div class="trans2">
+                    <h1>Contact Us </h1>
+                    <form onsubmit="sendEmail(); reset(); return false;">
+                        <div id="First">
+                            <input id="name" type="text" name="" required="required">
+                            <span class="text">First Name</span>
+                            <span class="line"></span>
+                        </div>
+                        <div id="Last">
+                            <input type="text" name="" required="required">
+                            <span class="text">Last Name</span>
+                            <span class="line"></span>
+                        </div>
+                        <div id="Email">
+                            <input id="email" type="email" name="" required="required">
+                            <span class="text">Email</span>
+                            <span class="line"></span>
+                        </div>
+                        <div id="Mobile">
+                            <input id="phone" type="tel" name="" required="required">
+                            <span class="text">Mobile</span>
+                            <span class="line"></span>
+                        </div>
+                        <div id="Message">
+                            <textarea id="message" required="required" name="" id="textarea" cols="30" rows="10"></textarea>
+                            <span class="text">Type your message here...</span>
+                            <span class="line"></span>
+                        </div>
+                        <div id="Send">
+                            <input onclick="sendEmail" type="submit" value="Send">
+                        </div>
+                </div>
+                </form>
+
+
+            </div>
+
+
+            <div id="two">
+
+                <img src="ch.jpg" alt="">
+                <h2>Reach Us</h2>
+                <p>Email: <a href="mailto:shy001@pu.edu.lb">shy001@pu.edu.lb</a></p>
+            </div>
+
+            <footer>
+                <p>Copyright &copy; Sara Younes <a href="mailto: shy001@pu.edu.lb">shy001@pu.edu.lb</a> PU CMPS270 <br>
+                    Last
+                    Modified: Spring 2022</p>
+            </footer>
+
+        </main>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "Sara Younes",
+                Password: "******",
+                To: 'younes.sara2004@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "New contact Form Enquiry",
+                Body: "Name: "+document.getElementById("name").value
+                +"<br> Email: "+document.getElementById("email").value
+                +"<br> Phone no: "+document.getElementById("phone").value
+                + "<br> Message: "+document.getElementById("message").value
+            }).then(
+                message => alert("Message Sent Succesfully")
+            );
+        }
+    </script>
+</body>
+
+</html>
